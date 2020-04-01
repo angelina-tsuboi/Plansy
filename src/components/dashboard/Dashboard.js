@@ -23,10 +23,10 @@ class Dashboard extends Component {
     }
 }
 
-const mapToState = (state) => { //specifies what to get from the store
+const mapStateToProps = (state) => { //specifies what to get from the store
     return{
         projects: state.project.projects
     } 
 }
 
-export default compose(firestoreConnect(['projects']),connect(mapToState))(Dashboard)
+export default compose(connect(mapStateToProps), firestoreConnect(['projects']), (Dashboard))
