@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Notifications from './Notifications';
 import ProjectList from '../projects/ProjectList';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
 
 class Dashboard extends Component {
     render(){
@@ -27,4 +29,4 @@ const mapToState = (state) => { //specifies what to get from the store
     } 
 }
 
-export default connect(mapToState) (Dashboard);
+export default compose(firestoreConnect(['projects']),connect(mapToState))(Dashboard)
